@@ -14,13 +14,70 @@ font-family: "LXGW WenKai Mono TC", monospace; */
     src: url(../uploads/ChenYuluoyan-2.0-Thin.ttf);
 }
 
-$themecolor1: #c9d1cb;
+$themecolor1: #dde7e0;
 $themecolor2: #264d2f;
 $themecolor3: #bdb281;
 
 
 body {
     background-color: $themecolor1;
+
+    // .img-wrapper {
+    //     position: relative;
+    //     overflow: hidden;
+    // }
+
+    #mask1 {
+        mask: url(#clip1) no-repeat center/contain;
+        -webkit-mask: url(#clip1) no-repeat center/contain;
+    }
+    #mask2 {
+        mask: url(#clip2) no-repeat center/contain;
+        -webkit-mask: url(#clip2) no-repeat center/contain;
+    }
+    #mask3 {
+        mask: url(#clip3) no-repeat center/contain;
+        -webkit-mask: url(#clip3) no-repeat center/contain;
+    }
+    .carousel-item {
+        position: relative;
+    }
+
+    .anim-circle,
+    .anim-path {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: scalePulse 1.8s ease-in-out forwards;
+    }
+
+    /* 如果想要在 CSS 端控制整個 SVG 的 scale（替代 SVG 內部 animateTransform） */
+    @keyframes scalePulse {
+        from {
+            transform: scale(0.1);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+
+    .anim-circle:nth-child(2n+1) {
+        animation-delay: 0s;
+    }
+
+    .anim-circle:nth-child(2n) {
+        animation-delay: 0.1s;
+    }
+
+    .anim-circle:nth-child(5n) {
+        animation-delay: 0.2s;
+    }
+
+    .anim-path {
+        animation-delay: 1s;
+    }
+
 
     header {
         nav {

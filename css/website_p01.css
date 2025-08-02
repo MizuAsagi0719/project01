@@ -12,7 +12,49 @@ font-family: "LXGW WenKai Mono TC", monospace; */
   src: url(../uploads/ChenYuluoyan-2.0-Thin.ttf);
 }
 body {
-  background-color: #c9d1cb;
+  background-color: #dde7e0;
+  /* 如果想要在 CSS 端控制整個 SVG 的 scale（替代 SVG 內部 animateTransform） */
+}
+body #mask1 {
+  mask: url(#clip1) no-repeat center/contain;
+  -webkit-mask: url(#clip1) no-repeat center/contain;
+}
+body #mask2 {
+  mask: url(#clip2) no-repeat center/contain;
+  -webkit-mask: url(#clip2) no-repeat center/contain;
+}
+body #mask3 {
+  mask: url(#clip3) no-repeat center/contain;
+  -webkit-mask: url(#clip3) no-repeat center/contain;
+}
+body .carousel-item {
+  position: relative;
+}
+body .anim-circle,
+body .anim-path {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: scalePulse 1.8s ease-in-out forwards;
+}
+@keyframes scalePulse {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+body .anim-circle:nth-child(2n+1) {
+  animation-delay: 0s;
+}
+body .anim-circle:nth-child(2n) {
+  animation-delay: 0.1s;
+}
+body .anim-circle:nth-child(5n) {
+  animation-delay: 0.2s;
+}
+body .anim-path {
+  animation-delay: 1s;
 }
 body header nav div .collapse form input {
   opacity: 0.3;
