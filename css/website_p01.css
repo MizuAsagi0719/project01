@@ -81,6 +81,12 @@ body .anim-circle:nth-child(5n) {
 body .anim-path {
   animation-delay: 1s;
 }
+body header nav {
+  height: 4vw;
+}
+body header nav div a img {
+  width: 60%;
+}
 body header nav div .collapse form input {
   opacity: 0.3;
   background-color: rgba(255, 255, 255, 0.3764705882);
@@ -164,7 +170,7 @@ body header #content .row .col-md-10 #myCarousel .infoTextL2 hr {
 }
 body header #content .row .col-md-10 #myCarousel .infoTextL2 #artist {
   display: inline;
-  font-size: 8rem;
+  font-size: 7rem;
   font-family: "jf粉圓體";
   padding-bottom: 10px;
 }
@@ -179,30 +185,26 @@ body section .brand h4 {
   font-family: "LINESeed_bold";
   font-size: 3rem;
 }
-body section .products {
-  height: 28vw;
-}
 body section .products h4 {
   font-family: "LINESeed_bold";
   font-size: 3rem;
   height: 3rem;
 }
-body section .products div {
-  height: 15vw;
-  margin: auto;
+body section .products .row .product {
+  background-color: #dde7e0;
+  border: none;
+  font-family: "jf粉圓體";
 }
-body section .products div .d-flex {
-  width: 80vw;
-}
-body section .products div .d-flex .product {
-  width: 15vw;
+body section .products .row .product .p-body {
   position: relative;
+  width: 15vw;
+  height: 16vw;
 }
-body section .products div .d-flex .product img {
+body section .products .row .product .p-body img {
   position: absolute;
   bottom: 0;
 }
-body section .products div .d-flex .product .btn-add-to-cart {
+body section .products .row .product .p-body .btn-add-to-cart {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -213,9 +215,13 @@ body section .products div .d-flex .product .btn-add-to-cart {
   display: none;
   transition: opacity 0.3s ease;
 }
-body section .products div .d-flex .product:hover .btn-add-to-cart {
+body section .products .row .product .p-body:hover .btn-add-to-cart {
   opacity: 1;
   display: block;
+}
+body section .products .row .product h5 {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 footer {
@@ -230,6 +236,7 @@ footer .container-fluid #last-data h4 {
   margin-bottom: 20px;
   font-family: "jf粉圓體";
   font-weight: 300;
+  color: #264d2f;
 }
 footer .container-fluid #last-data a:hover {
   color: #264d2f;

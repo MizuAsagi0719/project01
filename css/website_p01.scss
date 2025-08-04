@@ -110,7 +110,15 @@ body {
 
     header {
         nav {
+            height: 4vw;
+
             div {
+                a {
+                    img {
+                        width: 60%;
+                    }
+                }
+
                 .collapse {
                     form {
                         input {
@@ -242,7 +250,7 @@ body {
 
                             #artist {
                                 display: inline;
-                                font-size: 8rem;
+                                font-size: 7rem;
                                 font-family: "jf粉圓體";
                                 padding-bottom: 10px;
                             }
@@ -270,7 +278,6 @@ body {
         }
 
         .products {
-            height: 28vw;
 
             h4 {
                 font-family: "LINESeed_bold";
@@ -278,15 +285,17 @@ body {
                 height: 3rem;
             }
 
-            div {
-                height: 15vw;
-                margin: auto;
+            .row {
+                .product {
+                    background-color: $themecolor1;
+                    border: none;
+                    font-family: "jf粉圓體";
 
-                .d-flex {
-                    width: 80vw;                    
-                    .product {
-                        width: 15vw;
+                    .p-body {
                         position: relative;
+                        width: 15vw;
+                        height: 16vw;
+
 
                         img {
                             position: absolute;
@@ -312,6 +321,11 @@ body {
                             }
                         }
                     }
+
+                    h5 {
+                        text-align: center;
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }
@@ -331,13 +345,15 @@ footer {
                 margin-bottom: 20px;
                 font-family: "jf粉圓體";
                 font-weight: 300;
+                color: $themecolor2;
             }
 
             a {
                 &:hover {
-                    color:$themecolor2;
+                    color: $themecolor2;
                 }
             }
+
             .icon {
                 p {
                     font-size: 2rem;
