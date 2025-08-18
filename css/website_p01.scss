@@ -161,18 +161,17 @@ body {
                                 }
                             }
 
-                            .accordion-collapse {
-                                .accordion-body {
-                                    .table {
-                                        tbody {
-                                            tr {
-                                                td {
-                                                    a {
-                                                        color: $themecolor2;
 
-                                                        &:hover {
-                                                            color: #FFF;
-                                                        }
+                            .accordion-body {
+                                .table {
+                                    tbody {
+                                        tr {
+                                            td {
+                                                a {
+                                                    color: $themecolor2;
+
+                                                    &:hover {
+                                                        color: #FFF;
                                                     }
                                                 }
                                             }
@@ -180,6 +179,7 @@ body {
                                     }
                                 }
                             }
+
                         }
                     }
                 }

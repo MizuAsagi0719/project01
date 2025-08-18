@@ -112,10 +112,10 @@ body header #content .row .col-md-2 .accordion .accordion-item h2 button {
   color: #FFF;
   background-color: #264d2f;
 }
-body header #content .row .col-md-2 .accordion .accordion-item .accordion-collapse .accordion-body .table tbody tr td a {
+body header #content .row .col-md-2 .accordion .accordion-item .accordion-body .table tbody tr td a {
   color: #264d2f;
 }
-body header #content .row .col-md-2 .accordion .accordion-item .accordion-collapse .accordion-body .table tbody tr td a:hover {
+body header #content .row .col-md-2 .accordion .accordion-item .accordion-body .table tbody tr td a:hover {
   color: #FFF;
 }
 body header #content .row .col-md-10 #myCarousel .infoTextR {
