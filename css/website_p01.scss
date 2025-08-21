@@ -154,13 +154,20 @@ body {
                         .accordion-item {
                             background-color: $themecolor3;
 
+                            button:focus {
+                                box-shadow
+                                : none;
+                                &::after {
+                                    color: #fff;
+                                }
+                            }
+
                             h2 {
                                 button {
                                     color: #FFF;
                                     background-color: $themecolor2;
                                 }
                             }
-
 
                             .accordion-body {
                                 .table {
@@ -179,8 +186,8 @@ body {
                                     }
                                 }
                             }
-
                         }
+
                     }
                 }
 

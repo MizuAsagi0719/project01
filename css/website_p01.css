@@ -108,6 +108,12 @@ body header #content .row .col-md-2 .accordion {
 body header #content .row .col-md-2 .accordion .accordion-item {
   background-color: #bdb281;
 }
+body header #content .row .col-md-2 .accordion .accordion-item button:focus {
+  box-shadow: none;
+}
+body header #content .row .col-md-2 .accordion .accordion-item button:focus::after {
+  color: #fff;
+}
 body header #content .row .col-md-2 .accordion .accordion-item h2 button {
   color: #FFF;
   background-color: #264d2f;
