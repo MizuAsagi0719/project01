@@ -5,15 +5,18 @@ $pyclass01 = $link->query($SQLstring);
 $i = 1; //控制編號順序用來排版
 ?>
 <div class="accordion" id="accordionExample">
-    <?php while ($pyclass01_Rows = $pyclass01->fetch()) { $i=$pyclass01_Rows['classid'] ?>
+    <?php while ($pyclass01_Rows = $pyclass01->fetch()) { 
+        $i=$pyclass01_Rows['classid'] ?>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne<?= $i; ?>">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?= $i; ?>" aria-expanded="true" aria-controls="collapseOne<?= $i; ?>">
                     <i class="<?= $pyclass01_Rows['fonticon']; ?>"></i><?= $pyclass01_Rows['cname']; ?>
                 </button>
             </h2>
-            <?php
-            if (isset($_GET['classid'])) {
+            <?php //使用第一層類別查詢
+            if (isset($_GET['level']) && $_GET['level'] == 1) {
+                $ladder = $_GET['classid'];
+            } elseif (isset($_GET['classid'])) {
                 $SQLstring = "SELECT uplink FROM pyclass where level= 2 and classid =" . $_GET['classid'];
                 $classid_rs = $link->query($SQLstring);
                 $data = $classid_rs->fetch();
@@ -31,7 +34,7 @@ $i = 1; //控制編號順序用來排版
                         <tbody>
                             <?php while ($pyclass02_Rows = $pyclass02->fetch()) { ?>
                                 <tr>
-                                    <td><a href="#"><em class="<?= $pyclass02_Rows['fonticon']; ?>"></em><?= $pyclass02_Rows['cname']; ?></a>
+                                    <td><a href="./allproducts_menu.php?classid= <?= $pyclass02_Rows['classid'];?>"><em class="<?= $pyclass02_Rows['fonticon']; ?>"></em><?= $pyclass02_Rows['cname']; ?></a>
                                     </td>
                                 </tr>
                             <?php } ?>

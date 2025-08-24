@@ -22,6 +22,7 @@
                 <div class="col-md-2 sidebar">
                     <!-- 引入sidebar分類導覽列 -->
                     <?php require_once('sidebar.php'); ?>
+                    <a href="./allproducts_menu.php"><button class="btn btn-success w-100" id="allproducts">全部產品一覽</button></a>
                 </div>
                 <div class="col-md-10">
                     <!-- 廣告輪播 -->
