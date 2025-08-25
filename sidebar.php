@@ -10,7 +10,7 @@ $i = 1; //控制編號順序用來排版
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne<?= $i; ?>">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?= $i; ?>" aria-expanded="true" aria-controls="collapseOne<?= $i; ?>">
-                    <i class="<?= $pyclass01_Rows['fonticon']; ?>"></i><?= $pyclass01_Rows['cname']; ?>
+                    <i class="<?= $pyclass01_Rows['fonticon']; ?>"></i><span class="d-inline d-sm-none d-xl-inline"><?= $pyclass01_Rows['cname']; ?></span>
                 </button>
             </h2>
             <?php //使用第一層類別查詢
@@ -34,7 +34,7 @@ $i = 1; //控制編號順序用來排版
                         <tbody>
                             <?php while ($pyclass02_Rows = $pyclass02->fetch()) { ?>
                                 <tr>
-                                    <td><a href="./allproducts_menu.php?classid= <?= $pyclass02_Rows['classid'];?>"><em class="<?= $pyclass02_Rows['fonticon']; ?>"></em><?= $pyclass02_Rows['cname']; ?></a>
+                                    <td><a href="./allproducts_menu.php?classid= <?= $pyclass02_Rows['classid'];?>"><em class="<?= $pyclass02_Rows['fonticon']; ?>"></em><span class="d-inline d-sm-none d-xl-inline"><?= $pyclass02_Rows['cname']; ?></span></a>
                                     </td>
                                 </tr>
                             <?php } ?>
