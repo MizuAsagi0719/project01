@@ -227,7 +227,7 @@ body section .products .row .product .p-body:hover .btn-add-to-cart {
 }
 body section .products .row .product h5 {
   text-align: center;
-  font-size: 1.5rem;
+  overflow: visible;
 }
 
 footer {
@@ -249,4 +249,21 @@ footer .container-fluid #last-data a:hover {
 }
 footer .container-fluid #last-data .icon p {
   font-size: 2rem;
+}
+
+.pagination {
+  --bs-pagination-color: #264d2f;
+  --bs-pagination-hover-color: #bdb281;
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(33, 253, 13, 0.25);
+  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-bg: #264d2f;
+  --bs-pagination-active-border-color:#264d2f;
+}
+
+.page-item:not(:first-child) .page-link {
+  margin-left: 10px;
+}
+
+.page-item .page-link {
+  border-radius: 50%;
 }/*# sourceMappingURL=website_p01.css.map */

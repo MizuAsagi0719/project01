@@ -24,7 +24,9 @@
                         <?php require_once('sidebar.php'); ?>
                         <a href="./allproducts_menu.php"><button class="btn btn-success w-100" id="allproducts">全部產品一覽</button></a>
                     </div>
-                    <div class="col-md-10 products">
+                    <div class="col-md-10 products " style="margin-top:100px;">
+                        <!-- 麵包屑 -->
+                        <?php require_once('breadcrumb.php'); ?>
                         <!-- 商品列表 -->
                         <?php require_once('menu.php'); ?>
                     </div>

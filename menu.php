@@ -25,20 +25,19 @@ $pList01 = $link->query($query);
 $i = 1; //控制每列row 產生
 ?>
 <?php if ($pList01->rowCount() != 0) { ?>
-    <?php while ($pList01_Rows = $pList01->fetch()) { ?>
-        <?php if ($i % 4 == 1) { ?>
-            <div class="row justify-content-start"> <?php } ?>
-            <div class="product col-md-2 mx-5">
+    <div class="row justify-content-start">
+        <?php while ($pList01_Rows = $pList01->fetch()) { ?>
+            <div class="product col-12 col-sm-3 col-xl-2 mb-4 mx-5">
                 <div class="p-body">
-                    <img src="./product_img/<?= $pList01_Rows['img_file'] != NuLL ? $pList01_Rows['img_file'] : 'default.jpg'; ?>" alt="<?= $pList01_Rows['p_name'] ?>" title="<?= $pList01_Rows['p_name'] ?>" class="img-fluid">
-                    <button type="button" class="btn-add-to-cart text-center ">加入購物車</button>
+                    <img src="./product_img/<?= $pList01_Rows['img_file'] != NULL ? $pList01_Rows['img_file'] : 'default.jpg'; ?>" alt="<?= $pList01_Rows['p_name'] ?>" title="<?= $pList01_Rows['p_name'] ?>" class="img-fluid">
+                    <button type="button" class="btn-add-to-cart text-center">加入購物車</button>
                 </div>
-                <h5 class="card-title my-3"><?= $pList01_Rows['p_name'] ?></h5>
+                <p class="card-title my-3 fs-5"><?= $pList01_Rows['p_name'] ?></p>
             </div>
-            <?php if ($i % 4 == 0 || $i == $pList01->rowCount()) { ?>
-            </div><?php } ?>
-    <?php $i++;
-    } ?>
+        <?php } ?>
+    </div>
+
+
 
     <div class="row mt-2">
         <?php //取得目前分頁數
