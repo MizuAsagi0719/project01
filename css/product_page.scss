@@ -1,0 +1,9 @@
+@use '_variables';
+
+.card-body {
+   
+    .card-title {
+        font-family: "jf粉圓體";
+        color: variables.$themecolor2 ;
+    }
+}

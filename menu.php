@@ -29,7 +29,7 @@ $i = 1; //控制每列row 產生
         <?php while ($pList01_Rows = $pList01->fetch()) { ?>
             <div class="product col-12 col-sm-3 col-xl-2 mb-4 mx-5">
                 <div class="p-body">
-                    <img src="./product_img/<?= $pList01_Rows['img_file'] != NULL ? $pList01_Rows['img_file'] : 'default.jpg'; ?>" alt="<?= $pList01_Rows['p_name'] ?>" title="<?= $pList01_Rows['p_name'] ?>" class="img-fluid">
+                    <a href="product_page.php?p_id=<?= $pList01_Rows['p_id']; ?>"><img src="./product_img/<?= $pList01_Rows['img_file'] != NULL ? $pList01_Rows['img_file'] : 'default.jpg'; ?>" alt="<?= $pList01_Rows['p_name'] ?>" title="<?= $pList01_Rows['p_name'] ?>" class="img-fluid"></a>
                     <button type="button" class="btn-add-to-cart text-center">加入購物車</button>
                 </div>
                 <p class="card-title my-3 fs-5"><?= $pList01_Rows['p_name'] ?></p>
