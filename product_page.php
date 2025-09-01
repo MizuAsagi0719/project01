@@ -19,21 +19,21 @@
         <!-- 引入導覽列 -->
         <?php require_once('navbar.php'); ?>
         <div class="container-fluid" id="content">
-                <section class="row">
-                    <div class="col-md-2 sidebar">
-                        <!-- 引入sidebar分類導覽列 -->
-                        <?php require_once('sidebar.php'); ?>
-                        <a href="./allproducts_menu.php"><button class="btn btn-success w-100" id="allproducts">全部產品一覽</button></a>
-                    </div>
-                    <div class="col-md-10 products " style="margin-top:100px;">
-                        <!-- 麵包屑 -->
-                        <?php require_once('breadcrumb.php'); ?>
+            <section class="row">
+                <div class="col-md-2 sidebar">
+                    <!-- 引入sidebar分類導覽列 -->
+                    <?php require_once('sidebar.php'); ?>
+                    <a href="./allproducts_menu.php"><button class="btn btn-success w-100" id="allproducts">全部產品一覽</button></a>
+                </div>
+                <div class="col-md-10 products " style="margin-top:100px;">
+                    <!-- 麵包屑 -->
+                    <?php require_once('breadcrumb.php'); ?>
 
-                        <div class="card mb-3 col-10">
-                        <div class="row g-0">
-                            <div class="col-md-3">
+                    <div class="card mb-3 col-10" style="height:800px;">
+                        <div class="row g-0 mt-3">
+                            <div class="col-md-3 ms-3 ">
                                 <?php
-                                //取得產品圖片檔明資料
+                                //取得產品圖片檔名資料
                                 $SQLstring = sprintf("SELECT * FROM product_img WHERE product_img.p_id = %d ORDER BY sort", $_GET['p_id']);
                                 $img_rs = $link->query($SQLstring);
                                 $imgList = $img_rs->fetch();
@@ -50,29 +50,53 @@
                                     <?php } while ($imgList = $img_rs->fetch()) ?>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 ps-3">
                                 <div class="card-body">
                                     <h3 class="card-title"><?= $data['p_name']; ?></h3>
                                     <p class="card-text"><?= $data['p_intro']; ?></p>
                                     <h4 class="color-e600a0">$<?= $data['p_price']; ?></h4>
                                     <div class="row mt-3">
+                                        <div class="my-3">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>請選擇款式</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="input-group input-group-lg">
                                                 <span class="input-group-text color-success" id="inputGroup-sizing-lg">數量</span>
-                                                <input type="number" id="qty" name="qty" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                                                <input type="number" id="qty" name="qty" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="1">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <button name="button01" id="button01" type="button" class="btn btn-success btn-lg color-success">加入購物車</button>
                                         </div>
-                                        <p class="my-2"><?= $data['p_content']; ?></p>
+                                        <p class="my-4 p_content"><?= $data['p_content']; ?></p>
+                                    </div>
+                                </div>
+                                <div class="row ms-3">
+                                    <div class="col mx-1">
+                                        <h5 class="mx-0">圖紋介紹</h5>
+                                        <hr class="border-bottom border-success border-3">
+                                        <p></p>
+                                    </div>
+                                    <div class="col mx-3">
+                                        <h5>規格說明</h5>
+                                        <hr class="border-bottom border-success border-3">
+                                        <p>
+                                            材質：帆布 <br>
+                                            工藝：印刷 <br>
+                                            尺寸：Ｗ30xＨ38xＤ6cm
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                </section>
+                </div>
+            </section>
         </div>
     </header>
 
