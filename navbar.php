@@ -1,3 +1,8 @@
+<?php 
+$SQLstring = "SELECT * FROM cart WHERE orderid is NULL AND ip='".$_SERVER['REMOTE_ADDR']."'";
+$cart_rs = $link->query($SQLstring);
+?>
+
 <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
     <div class="container-fluid">
         <a class="navbar-brand col-2" href="./index_p01.php"><img src="./images/logo2.png" alt="" class="img-fluid"></a>
@@ -15,9 +20,9 @@
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
-                <button class="btn"><i class="fa-solid fa-user fa-2x"></i></button>
-                <button class="btn"><i class="fa-solid fa-cart-shopping fa-2x"></i></button>
+                <a class="btn" type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
+                <a class="btn"><i class="fa-solid fa-user fa-2x"></i></a>
+                <a href="./cart.php" class="btn position-relative"><i class="fa-solid fa-cart-shopping fa-2x"></i><span class="badge text-bg-info position-absolute top-0 start-100 translate-middle"><?= ($cart_rs) ? $cart_rs->rowCount():'';?></span></a>
             </form>
         </div>
     </div>

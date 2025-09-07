@@ -131,7 +131,8 @@ body {
                             }
                         }
 
-                        button {
+                        a {
+                            text-decoration: none;
                             color: variables.$themecolor2;
 
                             &:hover {

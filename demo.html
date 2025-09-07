@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>clip-path 最簡測試</title>
+  <style>
+    body {
+      background: #222;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .demo-img {
+      width: 500px;
+      display: block;
+      margin: 20px auto;
+      clip-path: url(#simpleCircle);
+      -webkit-clip-path: url(#simpleCircle);
+    }
+    .demo-img2 {
+      width: 500px;
+      display: block;
+      margin: 20px auto;
+      clip-path: url(#twoCircles);
+      -webkit-clip-path: url(#twoCircles);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Clip-path 測試</h1>
+  <p>單一圓裁切（應該會看到一張被圓形裁切的圖）：</p>
+  <img class="demo-img" src="https://picsum.photos/id/1015/800/450" alt="circle clip">
+
+  <p>兩個圓聯集裁切（union，看起來像兩個重疊圓的組合）：</p>
+  <img class="demo-img2" src="https://picsum.photos/id/1016/800/450" alt="two circles clip">
+
+  <!-- clipPath 定義 -->
+  <svg width="0" height="0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- 簡單一個圓 -->
+      <clipPath id="simpleCircle" clipPathUnits="objectBoundingBox">
+        <circle cx="0.5" cy="0.5" r="0.3" />
+      </clipPath>
+
+      <!-- 兩個圓聯集 -->
+      <clipPath id="twoCircles" clipPathUnits="objectBoundingBox">
+        <circle cx="0.35" cy="0.5" r="0.25" />
+        <circle cx="0.65" cy="0.5" r="0.25" />
+      </clipPath>
+    </defs>
+  </svg>
+
+</body>
+</html>

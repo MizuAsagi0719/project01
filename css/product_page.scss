@@ -1,18 +1,16 @@
 @use '_variables';
+.title-font {
+font-family: "jf粉圓體";
+}
+
+.title-bg1 {
+    color: variables.$themecolor2 ;
+}
+
 
 .card-body {
 
     .card-title {
-        font-family: "jf粉圓體";
         color: variables.$themecolor2 ;
-    }
-}
-
-.row {
-    .col {
-        
-        h5 {
-            font-family: "jf粉圓體";
-        }
     }
 }

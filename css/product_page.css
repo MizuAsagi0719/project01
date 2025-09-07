@@ -1,9 +1,12 @@
 @charset "UTF-8";
-.card-body .card-title {
+.title-font {
   font-family: "jf粉圓體";
+}
+
+.title-bg1 {
   color: #264d2f;
 }
 
-.row .col h5 {
-  font-family: "jf粉圓體";
+.card-body .card-title {
+  color: #264d2f;
 }/*# sourceMappingURL=product_page.css.map */
