@@ -20,9 +20,9 @@ $cart_rs = $link->query($SQLstring);
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <a class="btn" type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
-                <a class="btn"><i class="fa-solid fa-user fa-2x"></i></a>
-                <a href="./cart.php" class="btn position-relative"><i class="fa-solid fa-cart-shopping fa-2x"></i><span class="badge text-bg-info position-absolute top-0 start-100 translate-middle"><?= ($cart_rs) ? $cart_rs->rowCount():'';?></span></a>
+                <a class="btn mt-1" type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
+                <a class="btn"><i class="fa-solid fa-user fa-2x mt-1"></i></a>
+                <a href="./cart.php" class="btn position-relative mt-1"><i class="fa-solid fa-cart-shopping fa-2x"></i><span class="badge text-bg-info position-absolute top-50 start-100 translate-middle"><?= ($cart_rs) ? $cart_rs->rowCount():'';?></span></a>
             </form>
         </div>
     </div>

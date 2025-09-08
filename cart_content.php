@@ -7,15 +7,15 @@ $ptotal = 0; //設定累加變數，初始=0
 
 <h3>購物車</h3>
 <?php if ($cart_rs->rowCount() != 0) { ?>
-    <a href="index.php" id="btn01" name="btn01" class="btn btn-primary">繼續購物</a>
-    <button type="button" id="btn02" name="btn02" class="btn btn-info" onclick="window.history.go(-1)">回到上一頁</button>
-    <button type="button" id="btn03" name="btn03" class="btn btn-success" onclick="btn_confirmLink('確定清空購物車？','shopcart_del.php?mode=2');">清空購物車</button>
-    <a href="checkout.php" id="btn04" name="btn04" class="btn btn-warning">前往結帳</a>
+    <a href="allproducts_menu.php" id="btn01" name="btn01" class="btn btn-primary">繼續購物</a>
+    <!-- <button type="button" id="btn02" name="btn02" class="btn btn-info" onclick="window.history.go(-1)">回到上一頁</button> -->
+    <button type="button" id="btn03" name="btn03" class="btn btn-danger" onclick="btn_confirmLink('確定清空購物車？','shopcart_del.php?mode=2');">清空購物車</button>
+    <a href="checkout.php" id="btn04" name="btn04" class="btn btn-success">前往結帳</a>
     <div class="table-responsive-md">
         <table class="table table-hover mt-3">
             <thead>
-                <tr class="table-warning">
-                    <td width="10%">產品編號</td>
+                <tr class="table-secondary">
+                    <td width="10%">項目</td>
                     <td width="10%">圖片</td>
                     <td width="25%">名稱</td>
                     <td width="15%">價格</td>
@@ -25,15 +25,16 @@ $ptotal = 0; //設定累加變數，初始=0
                 </tr>
             </thead>
             <tbody>
-                <?php while ($cart_data = $cart_rs->fetch()) { ?>
+                <?php $index = 1;
+                 while ($cart_data = $cart_rs->fetch()) { ?>
                     <tr>
-                        <td><?= $cart_data['p_id']; ?></td>
+                        <td><?= $index++; ?></td>
                         <td>
                             <img src="./product_img/<?= $cart_data['img_file']; ?>" alt="<?= $cart_data['p_name']; ?>" class="img-fluid">
                         </td>
                         <td><?= $cart_data['p_name']; ?></td>
                         <td>
-                            <h4 class="color-e600a0 pt-1">$<?= $cart_data['p_price']; ?></h4>
+                            <h5 class="color-e600a0 pt-1">$<?= $cart_data['p_price']; ?></h5>
                         </td>
                         <td style="min-width: 100px;">
                             <div class="input-group">
@@ -41,22 +42,22 @@ $ptotal = 0; //設定累加變數，初始=0
                             </div>
                         </td>
                         <td>
-                            <h4 class="color-e600a0 pt-1">$<?= $cart_data['p_price'] * $cart_data['qty']; ?></h4>
+                            <h5 class="color-e600a0 pt-1">$<?= $cart_data['p_price'] * $cart_data['qty']; ?></h5>
                         </td>
                         <td><button type="button" id="btn[]" name="btn[]" class="btn btn-danger" onclick="btn_confirmLink('確定刪除這筆資料？','shopcart_del.php?mode=1&cartid=<?= $cart_data['cartid']; ?>');">取消</button></td>
                     </tr>
                 <?php $ptotal += $cart_data['p_price'] * $cart_data['qty'];
                 } ?>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="7">累計：<?= $ptotal; ?></td>
+            <tfoot >
+                <tr >
+                    <td colspan="7" class="text-end pe-5">累計：<?= $ptotal; ?></td>
+                </tr>
+                <tr >
+                    <td colspan="7" class="text-end pe-5">運費：100</td>
                 </tr>
                 <tr>
-                    <td colspan="7">運費：100</td>
-                </tr>
-                <tr>
-                    <td colspan="7" class="color_red">總計：<?= $ptotal + 100; ?></td>
+                    <td colspan="7" class="text-end pe-5 text-danger" >總計：<?= $ptotal + 100; ?></td>
                 </tr>
             </tfoot>
         </table>

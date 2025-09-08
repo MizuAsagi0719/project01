@@ -44,7 +44,7 @@ if ($class_data['classid'] == 4) {
                     <!-- 麵包屑 -->
                     <?php require_once('breadcrumb.php'); ?>
 
-                    <div class="card mb-3 col-10" style="height:800px;">
+                    <div class="card mb-3 col-10" style="min-height:800px;">
                         <div class="row g-0 mt-3">
                             <div class="col-md-3 ms-3 ">
                                 <?php
@@ -79,8 +79,12 @@ if ($class_data['classid'] == 4) {
                                             // 撈 patterns (radio 按鈕用)
                                             $patternSQL = "SELECT * FROM patterns";
                                             $pattern_rs = $link->query($patternSQL);
-                                            while ($patterns = $pattern_rs->fetch()) { ?>
-                                                <input type="radio" class="btn-check" name="options" id="option<?= $patterns['pat_id'] ?>" autocomplete="off"
+                                            $pattern_contents = []; // 儲存 content
+                                            while ($patterns = $pattern_rs->fetch()) {
+                                                // 儲存 content 到陣列（之後 JS 用）
+                                                $pattern_contents[$patterns['pat_id']] = $patterns['p_content'];
+                                            ?>
+                                                <input type="radio" class="btn-check " name="options" id="option<?= $patterns['pat_id'] ?>" autocomplete="off"
                                                     data-pid="<?= $_GET['p_id'] ?>"
                                                     data-pat="<?= $patterns['pat_id'] ?>">
                                                 <label class="btn btn-secondary" for="option<?= $patterns['pat_id'] ?>"><?= $patterns['pat_name'] ?></label>
@@ -93,24 +97,26 @@ if ($class_data['classid'] == 4) {
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <button name="button01" id="button01" type="button" class="btn btn-success btn-lg color-success" id="qty" name="qty" onclick="addcart(<?= $data['p_id']; ?>)">>加入購物車</button>
+                                            <button name="button01" id="button01" type="button" class="btn btn-success btn-lg color-success" id="qty" name="qty" onclick="addcart(<?= $data['p_id']; ?>)">加入購物車</button>
                                         </div>
-                                        <p class="my-4 p_content"><?= $data['p_content']; ?></p>
+                                        <p class="my-4 p_content"></p>
                                     </div>
                                 </div>
                                 <div class="row ms-3">
                                     <div class="col mx-1">
                                         <h5 class="mx-0 title-font">圖紋介紹</h5>
                                         <hr class="border-bottom border-success border-3">
-                                        <p></p>
+                                        <p>
+                                        <div id="pattern-content" class="mt-3 alert alert-success">
+                                            請選擇一個款式查看說明。
+                                        </div>
+                                        </p>
                                     </div>
                                     <div class="col mx-3">
                                         <h5 class="title-font">規格說明</h5>
                                         <hr class="border-bottom border-success border-3">
                                         <p>
-                                            材質：帆布 <br>
-                                            工藝：印刷 <br>
-                                            尺寸：Ｗ30xＨ38xＤ6cm
+                                            <?= $data['p_content']; ?>
                                         </p>
                                     </div>
                                 </div>
@@ -192,10 +198,6 @@ if ($class_data['classid'] == 4) {
             });
 
 
-
-
-
-
             // // 當點擊「加入購物車」按鈕時，更新圖片
             // $("#button01").click(function() {
             //     var selectedPatId = $("input[name='options']:checked").data("pat"); // 取得選中的圖案pat_id
@@ -218,5 +220,16 @@ if ($class_data['classid'] == 4) {
             // });
         });
     </script>
+    <script>
+        // 用 JS 儲存對應的內容（PHP 輸出成 JS）
+        const patternContents = <?= json_encode($pattern_contents, JSON_UNESCAPED_UNICODE) ?>;
 
+        document.querySelectorAll('.btn-check').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const patId = this.dataset.pat;
+                const content = patternContents[patId] || '沒有對應的說明';
+                document.getElementById('pattern-content').textContent = content;
+            });
+        });
+    </script>
 </body>

@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="container-fluid products ">
-            <h4 class="text-center my-3">產品展示</h4>
+            <h4 class="text-center my-3">推薦商品</h4>
             <hr class="my-4">
             <!-- 產品列表 -->
             <?php require_once('products_list.php'); ?>
